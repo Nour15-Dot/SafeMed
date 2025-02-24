@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+    <html lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>الاتصال</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* لتوسيط العنصر أفقيًا */
+    align-items: center; /* لتوسيط العنصر عموديًا */
+    height: 100vh; /* لتحديد ارتفاع الصفحة بالكامل */
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+        background-color: #0078d4;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+        direction: rtl; /* لإظهار النص على اليمين */
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 20px; /* لتغيير الهامش للأيمن */
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+.info {
+    margin-right: 70px;
+    text-align: center;
+}
+
+.info p {
+    margin: 1px 0;
+}
+
+.form {
+    max-width: 500px;
+    margin-left: 500px;
+    margin-top: 150px;
+}
+
+
+
+.form input, .form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 45px;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 60px;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+.heading{
+    font-size: 60px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: underline rgb(12, 139, 244);
+    padding-bottom: 400px;
+    display: flex;
+    margin-top: 20px;
+    height: 100px;
+    position: absolute;
+}
+
+</style>
+
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+              <img src="../logo.png" alt="شعار الموقع" />
+            </div>
+            <nav>
+              <ul>
+                <li><a href="./index.html">الرئيسية</a></li>
+                <li><a href="./هدفنا.html">هدفنا</a></li>
+                <li><a href="#"></a>QR</li>
+                <!--بدها تغير  -->
+                <li><a href="./الاراء.html">الاراء</a></li>
+                <li><a href="./الحيوية.html">المؤشرات الحيوية </a></li>
+                <li><a href="./اسئلة شائعة.html">اسئلة شائعة</a></li>
+                <li><a href="./الاتصال.html">الأتصال</a></li>
+                <li><a href="./الخريطة.html">الخريطة </a></li>
+              </ul>
+            </nav>
+          </header>
+
+   <div class="info">
+        <p>Amman, Amman Governorate, Jordan </p></br>
+        <p> Mon-Fri - 08:00-19:00 </p></br>
+    </div>
+    <div class="heading">الاتصال</div>
+
+            <div class="form">
+                <input type="text" placeholder="Name">
+                <input type="tel" placeholder="Phone number ">
+                <input type="email" placeholder=" Email address">
+                <textarea cole="15"   rows="5"     placeholder="Message"></textarea>
+                <button > CONTACT US</button>
+            </div>
+        </div>
+    </body>
+    </html>
+    </body>
+</html>

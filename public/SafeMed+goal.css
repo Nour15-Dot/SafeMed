@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  direction: rtl;
+  overflow: hidden; /* <==لمحي شريط التمرير ( scroll) */
+
+}
+
+header {
+  background-color: #0078d4;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row-reverse; 
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  direction: rtl; /* لإظهار النص على اليمين */
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 20px; /* لتغيير الهامش للأيمن */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.first {
+  position: relative;
+  height: 100vh; /* ارتفاع كامل للخلفية */
+  overflow: hidden;
+}
+
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: changeBackground 10s infinite; /* تغيير الخلفية كل 5 ثوانٍ */
+  z-index: -1; /* ضمان أن تكون الصور في الخلفية */
+}
+
+@keyframes changeBackground {
+  0% {
+    background-image: url("../ship.png");
+  }
+  50% {
+    background-image: url("../med1.png");
+  }
+  100% {
+    background-image: url("../ship.png");
+  }
+}
+
+.first-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.first h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #fff;
+}
+
+.first p {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+footer {
+  background-color: #0078d4;
+  padding: 10px 0;
+  text-align: center;
+}
+/* -------------------------------------------  هون ستايل هدفنا */
+
+#g1 {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.g2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.g3 {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse; /* لضمان أن تكون الصورة على اليمين والنص على اليسار */
+  padding: 20px; /* إضافة مسافة داخلية */
+  margin: 20px; /* إضافة مسافة خارجية */
+}
+
+.image-section_g4 {
+  height: 300px; /* حجم الصورة مربع */
+  width: 300px; /* حجم الصورة مربع */
+  flex: 0 0 300px; /* حجم الصورة مربع */
+  background-image: url("../med2.png");
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px; /* إضافة مسافة بين الصورة والنص */
+}
+
+.text-section_g5 {
+  flex: 1;
+  padding: 20px;
+  direction: rtl;
+  text-align: center; /* توسيط النص */
+}
+
+.text-section_g5 h1 {
+  color: #6a1b9a;
+  margin-bottom: 20px;
+}
+
+.text-section_g5 p {
+  color: #333;
+  line-height: 1.6;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاراء</title>
+    <link rel="stylesheet" href="الاراء.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <img src="../logo.png" alt="شعار الموقع" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="./index.html">الرئيسية</a></li>
+            <li><a href="./هدفنا.html">هدفنا</a></li>
+            <li><a href="#"></a>QR</li> <!--بدها تغير  -->
+            <li><a href="./الاراء.html">الاراء</a></li>
+            <li><a href="./الحيوية.html">المؤشرات الحيوية </a></li>
+            <li><a href="./اسئلة شائعة.html">اسئلة شائعة</a></li>
+            <li><a href="./الاتصال.html">الأتصال</a></li>
+            <li><a href="#">الخريطة </a></li>
+            
+          </ul>
+        </nav>
+      </header>
+    <div class="testimonial-container">
+        <h2 class="title">الاراء</h2>
+        
+        <div class="testimonial-slider">
+            <button class="nav-button prev" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div class="testimonial-wrapper">
+                <div class="testimonial active">
+                    <img src="../aziz.png" alt="صورة العميل" class="profile-img">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"يا له من موقع جميل ! انه سهل الأستخدام وانصح الجميع بأستخدامه"</p>
+                    <p class="author">عزيز صالح</p>
+                </div>
+
+                <div class="testimonial">
+                    <img src="../eleen.jpg" alt="صورة العميل" class="profile-img">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"للحصول على دواء امن وموثوق عليك ان تستغل تجربتك بهذا الموقع"</p>
+                    <p class="author"> ألين سليمان</p>
+                </div>
+
+                <div class="testimonial">
+                    <img src="../maha.png" alt="صورة العميل" class="profile-img">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="quote">"اعتقد لا للتزوير بعد الان مع هذا الموقع الرائع دوائنا اصبح موثوق"</p>
+                    <p class="author">مها سلوى </p>
+                </div>
+            </div>
+
+            <button class="nav-button next" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <div class="dots">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+        </div>
+    </div>
+    <script src="الاراء.js"></script>
+</body>
+</html>
