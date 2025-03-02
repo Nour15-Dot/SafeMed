@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;}
+        .logo img {
+            width: 110px; /* أقصى عرض للشعار */
+            height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+             transition: transform 0.3s ease-in-out; /* تأثير تحريك عند التفاعل */
+}
+/* التأثير عند التمرير فوق الشعار */
+.logo img:hover {
+  transform: scale(1.05); /* تكبير الشعار قليلاً عند التمرير فوقه */
+}
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+        }
+         
+  
+        .container {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+         #m1{
+            color: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+        }
+        .left, .right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px;
+        }
+        .left {
+            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            color: #fff;
+            border-radius: 15px 150px 150px 15px; /* تقويسات للجانب الأيسر */            
+        }
+        .right {
+            
+            border-radius: 20px 15px 15px 20px; /* تقويسات للجانب الأيمن */
+        }
+        .bn{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            color: #fff;
+            border-radius: 150px 0 0 150px; /* تقويسات للجانب الأيسر */            
+        }
+        .right input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            color: #fff;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .switch-btn {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+    
+       .login-btn {
+           display: block;
+           width: 100%;
+           padding: 10px;
+           margin: 10px 0;
+           border: none;
+           border-radius: 25px;
+           background-color: #fff;
+          cursor: pointer;
+           font-size: 1em;
+          text-align: left;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+      .login-btn img {
+         width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+}
+
+      .google-btn {
+         background-color: #fff;
+         color: #757575;
+}
+
+
+       .linkedin-btn {
+         background-color: #fff;
+        color: #0a66c2;
+}
+
+      .github-btn {
+        background-color: #fff;
+        color: #333;
+}
+.ret{
+    position: fixed;
+    bottom: 20px; /* المسافة من أسفل الصفحة */
+    left: 50%; /* تضع الزر في منتصف العرض */
+    transform: translateX(-50%); /* لضبط الزر بالضبط في المنتصف */
+    background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+    color: white; /* لون النص */
+    padding: 20px 40px; /* حجم الزر: زيادة التباعد حول النص */
+    font-size: 18px; /* حجم النص */
+    border-radius: 50px; /* لجعل الحواف مدورة */
+    border: none; /* إزالة حدود الزر */
+    cursor: pointer; /* جعل المؤشر على شكل يد عند التمرير فوق الزر */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+    transition: background-color 0.3s ease; /* إضافة تأثير عند تمرير الفأرة */
+}
+
+
+
+    </style> 
+
+    <script>
+        function showRegistration() {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-container').style.display = 'flex';
+        }
+        function showLogin() {
+            document.getElementById('register-container').style.display = 'none';
+            document.getElementById('login-container').style.display = 'flex';
+        }
+        function handleLogin(provider) {
+    switch (provider) {
+        case 'google':
+            // Redirect to Google OAuth or use Google Sign-In API
+            window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token&scope=email profile';
+            break;
+        
+        case 'github':
+            // Redirect to GitHub OAuth
+            window.location.href = 'https://github.com/login/oauth/authorize?client_id=YOUR_GITHUB_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=user:email';
+            break;
+        
+
+         case 'linkedin':
+            // Redirect to LinkedIn OAuth
+            window.location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_LINKEDIN_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=r_emailaddress%20r_liteprofile';
+            break;
+
+
+            default:
+            alert('Unknown login provider');
+    } 
+}
+// Example callback after login (you'd handle this on the redirect URI or callback)
+function handleAuthCallback(token) {
+    // Send token to your backend for verification
+    fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: token })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // User is logged in or registered, redirect or update UI
+            window.location.href = '/dashboard';
+        } else {
+            alert('Login failed. Please try again.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+    </script>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="../logo2.png" alt="شعار الموقع" />
+      </div>
+    <div id="login-container" class="container">
+        <div class="left">
+            <h2>Hello, Welcome!</h2>
+            <p>Don't have an account?</p>
+            <button class="switch-btn" onclick="showRegistration()">Register</button>
+        </div>
+        <div class="right">
+            <h2 id="m1">Login</h2>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button>Login</button>
+            <div class="quick-login">
+                <button class="login-btn google-btn" onclick="handleLogin('google')">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" 
+                    alt="Google" width="24" height="24"> login with Google
+                        </button>
+        
+                <button class="login-btn linkedin-btn" onclick="handleLogin('linkedin')">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
+                                 alt="LinkedIn" width="24" height="24">login with LinkedIn
+                </button>
+                <button class="login-btn github-btn" onclick="handleLogin('github')">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+                    alt="GitHub" width="24" height="24">login with Github        </button>
+            </div>
+        </div>
+        
+
+    </div>
+    <div id="register-container" class="container" style="display: none;">
+        <div class="right">
+            <h2 id="m1">Registration</h2>
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Register</button>
+            <div class="quick-login">
+              <button class="login-btn google-btn" onclick="handleLogin('google')">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" 
+                  alt="Google" width="24" height="24"> login with Google
+                      </button>
+      
+              <button class="login-btn linkedin-btn" onclick="handleLogin('linkedin')">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
+                               alt="LinkedIn" width="24" height="24">login with LinkedIn
+              </button>
+              <button class="login-btn github-btn" onclick="handleLogin('github')">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+                  alt="GitHub" width="24" height="24">login with Github        </button>
+          </div>
+      </div>
+      <div class="bn">
+          <h2>Welcome Back!</h2>
+          <p>Already have an account?</p>
+          <button class="switch-btn" onclick="showLogin()">Login</button>
+      </div>
+      
+  </div>
+
+  </div> 
+  <section class="ret">
+    <a href="./index.html"><button>العودة الى الرئيسية</button></a>
+  </section>
+</body>
+</html>

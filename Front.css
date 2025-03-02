@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif, "Poppins";
+}
+.logo img {
+  width: 110px; /* أقصى عرض للشعار */
+  height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+  transition: transform 0.3s ease-in-out; /* تأثير تحريك عند التفاعل */
+}
+
+/* التأثير عند التمرير فوق الشعار */
+.logo img:hover {
+  transform: scale(1.05); /* تكبير الشعار قليلاً عند التمرير فوقه */
+}
+
+/* Body settings */
+body {
+  direction: rtl;
+  background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* عدلت إلى flex-start لتجنب تغطية العناصر من قبل الـ nav */
+  padding: 0; /* إزالة أي padding غير ضروري */
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-size: 14px;
+  z-index: 1000; /* تأكد من أن الـ nav أعلى من باقي المحتوى */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00d2d6;
+}
+button {
+  background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Home Section */
+#home {
+  min-height: 100vh;
+  padding: 5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* لضمان البدء من الأعلى */
+  align-items: flex-start; /* لضمان البدء من اليسار */
+  text-align: right; /* جعل النصوص على اليمين */
+  background-color: transparent;
+  z-index: 1; /* تأكد من أن الـ home يظهر بشكل صحيح */
+  position: relative; /* لتفعيل position: absolute للصورة إذا لزم الأمر */
+}
+
+#home-content {
+  display: flex;
+  justify-content: space-between; /* لتوزيع الصورة والنصوص على اليسار واليمين */
+  align-items: center;
+  width: 100%; /* لضمان ملء العرض الكامل */
+  padding: 20px;
+}
+
+#home-image {
+  flex: 0 0 auto; /* لضمان أن الصورة تأخذ مساحة محددة */
+  margin-right: 50px; /* مسافة بين الصورة والنصوص */
+  margin-top: 50px; /* إنزال الصورة للأسفل (يمكن تعديل القيمة حسب الحاجة) */
+}
+
+#home-image img {
+  max-width: 400px; /* التأكد من أن الصورة تأخذ 40% من المساحة */
+  height: auto; /* للحفاظ على نسبة الأبعاد الصحيحة للصورة */
+  border-radius: 30px; /* حواف مستديرة للصورة */
+}
+
+#home-text {
+  text-align: right; /* جعل النصوص على اليمين */
+  padding: 20px;
+  max-width: 60%; /* عرض النصوص ليترك مساحة للصورة */
+  color: #ffffff;
+}
+
+#home-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#home-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+#home-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+.highlight {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Track Section */
+#track {
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1; /* تأكد من أن الـ track يظهر بشكل صحيح */
+}
+
+#track h2,
+#track p,
+#track input,
+#track button {
+  color: #ffffff; /* تأكيد على أن النصوص والأزرار باللون الأبيض */
+}
+
+#track input {
+  background-color: #fff; /* خلفية بيضاء لحقل الإدخال */
+  color: #ffffff; /* النص داخل حقل الإدخال باللون الأسود */
+  margin-bottom: 1rem; /* لضمان وجود مسافة بين الحقل والزر */
+}
+
+#track button {
+  background-color: #00d2d6; /* خلفية زرقاء للأزرار */
+  color: #fff; /* نص الأزرار باللون الأبيض */
+}
+
+/* FAQ Section */
+#faq {
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.faq-item {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.faq-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color :#ffffff;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  color: #ffffff;
+}
+h2 {
+    color: #ffffff;
+}
+/* Contact Section */
+#contact {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+/* Login Section */
+#login {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+::-webkit-scrollbar {
+  width: 8px; /* عرض شريط التمرير الرفيع */
+  height: 8px; /* ارتفاع شريط التمرير (للتمرير الأفقي إذا لزم الأمر) */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* خلفية شفافة لمسار التمرير */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(
+    128,
+    128,
+    128,
+    0.5
+  ); /* لون رمادي شفاف (يمكن تعديله ليتناسب مع #7b7b7b أو أي لون آخر) */
+  border-radius: 4px; /* حواف مستديرة لزر التمرير */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.7); /* لون أغمق عند التحويم */
+}
