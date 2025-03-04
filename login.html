@@ -42,7 +42,7 @@
             overflow: hidden;
         }
          #m1{
-            color: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            color:  #6c86ff;
         }
         .left, .right {
             width: 50%;
@@ -54,7 +54,7 @@
             padding: 40px;
         }
         .left {
-            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            background:  #6c86ff;
             color: #fff;
             border-radius: 15px 150px 150px 15px; /* تقويسات للجانب الأيسر */            
         }
@@ -70,7 +70,7 @@
             flex-direction: column;
             text-align: center;
             padding: 40px;
-            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            background:  #6c86ff;
             color: #fff;
             border-radius: 150px 0 0 150px; /* تقويسات للجانب الأيسر */            
         }
@@ -82,7 +82,7 @@
             border-radius: 5px;
         }
         button {
-            background: linear-gradient(to right, #211f9f 30%, #7b7b7b 100%);
+            background:  #6c86ff;
             color: #fff;
             border: none;
             padding: 14px 28px;
@@ -119,21 +119,7 @@
         vertical-align: middle;
 }
 
-      .google-btn {
-         background-color: #fff;
-         color: #757575;
-}
-
-
-       .linkedin-btn {
-         background-color: #fff;
-        color: #0a66c2;
-}
-
-      .github-btn {
-        background-color: #fff;
-        color: #333;
-}
+      
 .ret{
     position: fixed;
     bottom: 20px; /* المسافة من أسفل الصفحة */
@@ -163,29 +149,7 @@
             document.getElementById('register-container').style.display = 'none';
             document.getElementById('login-container').style.display = 'flex';
         }
-        function handleLogin(provider) {
-    switch (provider) {
-        case 'google':
-            // Redirect to Google OAuth or use Google Sign-In API
-            window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token&scope=email profile';
-            break;
         
-        case 'github':
-            // Redirect to GitHub OAuth
-            window.location.href = 'https://github.com/login/oauth/authorize?client_id=YOUR_GITHUB_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=user:email';
-            break;
-        
-
-         case 'linkedin':
-            // Redirect to LinkedIn OAuth
-            window.location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_LINKEDIN_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=r_emailaddress%20r_liteprofile';
-            break;
-
-
-            default:
-            alert('Unknown login provider');
-    } 
-}
 // Example callback after login (you'd handle this on the redirect URI or callback)
 function handleAuthCallback(token) {
     // Send token to your backend for verification
@@ -223,20 +187,7 @@ function handleAuthCallback(token) {
             <input type="text" placeholder="Username">
             <input type="password" placeholder="Password">
             <button>Login</button>
-            <div class="quick-login">
-                <button class="login-btn google-btn" onclick="handleLogin('google')">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" 
-                    alt="Google" width="24" height="24"> login with Google
-                        </button>
-        
-                <button class="login-btn linkedin-btn" onclick="handleLogin('linkedin')">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
-                                 alt="LinkedIn" width="24" height="24">login with LinkedIn
-                </button>
-                <button class="login-btn github-btn" onclick="handleLogin('github')">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-                    alt="GitHub" width="24" height="24">login with Github        </button>
-            </div>
+            
         </div>
         
 
@@ -248,20 +199,6 @@ function handleAuthCallback(token) {
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
             <button>Register</button>
-            <div class="quick-login">
-              <button class="login-btn google-btn" onclick="handleLogin('google')">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" 
-                  alt="Google" width="24" height="24"> login with Google
-                      </button>
-      
-              <button class="login-btn linkedin-btn" onclick="handleLogin('linkedin')">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
-                               alt="LinkedIn" width="24" height="24">login with LinkedIn
-              </button>
-              <button class="login-btn github-btn" onclick="handleLogin('github')">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-                  alt="GitHub" width="24" height="24">login with Github        </button>
-          </div>
       </div>
       <div class="bn">
           <h2>Welcome Back!</h2>
