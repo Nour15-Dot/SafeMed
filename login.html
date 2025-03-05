@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #b3c6ff, #d9e2ff);
+        }
+        .container {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+         #m1{
+            color: #6c86ff;
+        }
+        .left, .right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px;
+        }
+        .left {
+            background: #6c86ff;
+            color: #fff;
+            border-radius: 15px 150px 150px 15px; /* تقويسات للجانب الأيسر */            
+        }
+        .right {
+            
+            border-radius: 20px 15px 15px 20px; /* تقويسات للجانب الأيمن */
+        }
+        .bn{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px;
+            background: #6c86ff;
+            color: #fff;
+            border-radius: 150px 0 0 150px; /* تقويسات للجانب الأيسر */            
+        }
+        .right input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #6c86ff;
+            color: #fff;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .switch-btn {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+    
+       .login-btn {
+           display: block;
+           width: 100%;
+           padding: 10px;
+           margin: 10px 0;
+           border: none;
+           border-radius: 25px;
+           background-color: #fff;
+          cursor: pointer;
+           font-size: 1em;
+          text-align: left;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+      .login-btn img {
+         width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+}
+    </style> 
+    <script>
+        function showRegistration() {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-container').style.display = 'flex';
+        }
+        function showLogin() {
+            document.getElementById('register-container').style.display = 'none';
+            document.getElementById('login-container').style.display = 'flex';
+        }
+    
+// Example callback after login (you'd handle this on the redirect URI or callback)
+function handleAuthCallback(token) {
+    // Send token to your backend for verification
+    fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: token })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+
+// User is logged in or registered, redirect or update UI
+            window.location.href = '/dashboard';
+        } else {
+            alert('Login failed. Please try again.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+    </script>
+</head>
+
+<body>
+    <div id="login-container" class="container">
+        <div class="left">
+            <h2>Hello, Welcome!</h2>
+            <p>Don't have an account?</p>
+            <button class="switch-btn" onclick="showRegistration()">Register</button>
+        </div>
+        <div class="right">
+            <h2 id="m1">Login</h2>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button>Login</button>
+            
+        </div>
+        
+
+    </div>
+    <div id="register-container" class="container" style="display: none;">
+        <div class="right">
+            <h2 id="m1">Registration</h2>
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Register</button>
+
+        </div>
+        <div class="bn">
+            <h2>Welcome Back!</h2>
+            <p>Already have an account?</p>
+            <button class="switch-btn" onclick="showLogin()">Login</button>
+        </div>
+        
+    </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .trackship {
+            background-color: #fff;
+            padding: 40px; /* Increased padding for larger size */
+            border-radius: 15px; /* Slightly larger border radius for a bigger look */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for emphasis */
+            width: 500px; /* Increased width for larger size */
+            height: 600px; /* Added height to make it taller */
+            text-align: center;
+            display: flex; /* Use flex to center content vertically and horizontally */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin-bottom: 15px; /* Increased margin for better spacing */
+            font-size: 32px; /* Larger font size for header */
+            color: #2c3e50;
+        }
+
+        .header p {
+            margin-bottom: 25px; /* Increased margin for better spacing */
+            color: #7f8c8d;
+            font-size: 18px; /* Larger font size for description */
+        }
+
+        /* Status List Styles */
+        .status-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0; /* Increased margin for better spacing */
+            text-align: left;
+            width: 100%; /* Ensure full width within the container */
+        }
+
+        .status-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Increased margin for better spacing */
+            font-size: 18px; /* Larger font size for status items */
+            color: #7f8c8d;
+        }
+
+        .status-list li i {
+            margin-right: 12px; /* Increased margin for icons */
+            font-size: 16px; /* Larger icon size */
+            color: #e0e0e0;
+        }
+
+        .status-list li.active {
+            color: #2c3e50;
+        }
+
+        .status-list li.active i {
+            color: #3498db;
+        }
+
+        .status-list li i.fa-check-circle {
+            color: #2ecc71;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Increased gap for better spacing */
+            width: 100%; /* Ensure full width within the container */
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: #f1f3f4;
+            border-radius: 10px; /* Larger border radius */
+            padding: 12px; /* Increased padding */
+        }
+
+        .input-group i {
+            margin-right: 12px; /* Increased margin for icons */
+            color: #7f8c8d;
+            font-size: 18px; /* Larger icon size */
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px; /* Increased padding */
+            border: none;
+            background: transparent;
+            font-size: 18px; /* Larger font size */
+            outline: none;
+        }
+
+
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button i {
+            margin-left: 10px; /* Increased margin for icons */
+        }
+
+        /* Back Button Section */
+        #back {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #back button {
+            padding: 12px 24px; /* Adjusted padding for back button */
+            background-color: #e74c3c; /* Red color for contrast */
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #back button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="trackship">
+        <div class="header">
+            <h1>Order Status</h1>
+            <p>Track the progress of your order below.</p>
+        </div>
+        <ul class="status-list">
+            <li id="trackship-orderCreated">
+                <i class="fas fa-circle"></i>
+                <span>Order Created</span>
+            </li>
+            <li id="trackship-outForPickup">
+                <i class="fas fa-circle"></i>
+                <span>Out for Pickup</span>
+            </li>
+            <li id="trackship-outForDelivery">
+                <i class="fas fa-circle"></i>
+                <span>Out for Delivery</span>
+            </li>
+            <li id="trackship-delivered">
+                <i class="fas fa-circle"></i>
+                <span>Delivered</span>
+            </li>
+        </ul>
+        <form id="trackship-form">
+            <div class="input-group">
+                <i class="fas fa-receipt"></i>
+                <input type="text" id="trackship-orderId" name="trackship" placeholder="Enter your order ID" required>
+            </div>
+            <button type="submit">Track Order <i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <section id="back" class="section">
+        <a href="./index.html"><button>العودة الى الرئيسية</button></a>
+    </section>
+    <script>
+        document.getElementById('trackship-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const orderId = document.getElementById('trackship-orderId').value;
+            const orderStatus = getOrderStatus(orderId);
+            updateStatus(orderStatus);
+        });
+
+        function getOrderStatus(orderId) {
+            // Simulate different statuses based on order ID
+            if (orderId === "12345") {
+                return "Out for Delivery";
+            } else if (orderId === "67890") {
+                return "Delivered";
+            } else {
+                return "Order Created";
+            }
+        }
+
+        function updateStatus(status) {
+            const statusList = document.querySelectorAll('.status-list li');
+            statusList.forEach(li => {
+                li.classList.remove('active');
+                li.querySelector('i').classList.remove('fa-check-circle');
+                li.querySelector('i').classList.add('fa-circle');
+            });
+
+            if (status === "Order Created") {
+                document.getElementById('trackship-orderCreated').classList.add('active');
+                document.getElementById('trackship-orderCreated').querySelector('i').classList.remove('fa-circle');
+                document.getElementById('trackship-orderCreated').querySelector('i').classList.add('fa-check-circle');
+            } else if (status === "Out for Pickup") {
+                document.getElementById('trackship-orderCreated').classList.add('active');
+                document.getElementById('trackship-orderCreated').querySelector('i').classList.remove('fa-circle');
+                document.getElementById('trackship-orderCreated').querySelector('i').classList.add('fa-check-circle');
+                document.getElementById('trackship-outForPickup').classList.add('active');
+                document.getElementById('trackship-outForPickup').querySelector('i').classList.remove('fa-circle');
+                document.getElementById('trackship-outForPickup').querySelector('i').classList.add('fa-check-circle');
+            } else if (status === "Out for Delivery") {
+                document.getElementById('trackship-orderCreated').classList.add('active');
+                document.getElementById('trackship-orderCreated').querySelector('i').classList.remove('fa-circle');
+                document.getElementById('trackship-orderCreated').querySelector('i').classList.add('fa-check-circle');
+                document.getElementById('trackship-outForPickup').classList.add('active');
+                document.getElementById('trackship-outForPickup').querySelector('i').classList.remove('fa-circle');
+                document.getElementById('trackship-outForPickup').querySelector('i').classList.add('fa-check-circle');
+                document.getElementById('trackship-outForDelivery').classList.add('active');
+                document.getElementById('trackship-outForDelivery').querySelector('i').classList.remove('fa-circle');
+                document.getElementById('trackship-outForDelivery').querySelector('i').classList.add('fa-check-circle');
+            } else if (status === "Delivered") {
+                statusList.forEach(li => {
+                    li.classList.add('active');
+                    li.querySelector('i').classList.remove('fa-circle');
+                    li.querySelector('i').classList.add('fa-check-circle');
+                });
+            }
+        }
+
+        // استخراج رقم التتبع من الرابط
+        const params = new URLSearchParams(window.location.search);
+        const trackingID = params.get("tracking_id");
+
+        // عرض رقم التتبع في الصفحة
+        if (trackingID) {
+            document.write(`<h2>Tracking Number: ${trackingID}</h2>`);
+        }
+    </script>
+</body>
+</html>
